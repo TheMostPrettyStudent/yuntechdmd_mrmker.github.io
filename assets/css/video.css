@@ -10,7 +10,7 @@ body {
     color: #351f07;
     letter-spacing: 0.1em;
     margin: auto;
-    background-image: url('/assets/images/video_image/background.png');
+    background-image: url('../images/video_image/background.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
