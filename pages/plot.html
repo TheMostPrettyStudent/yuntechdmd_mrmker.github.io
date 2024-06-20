@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故事劇情</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-image: url(../環節/bg_paper-14.svg); /* 與人物頁相同的背景顏色 */
+            font-family: 'Noto serif TC', serif;
+            color: #a01f24;
+        }
+        .content {
+            padding: 50px;
+            padding-top: 150px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .story-paragraph {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .story-paragraph.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <img src="../loading/load-15.svg" alt="Loading...">
+    </div>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../components/nav-index.html");
+        }); 
+    </script>
+    <div class="content">
+        <h1>故事劇情</h1>
+        <p class="story-paragraph"> 很久很久以前，在某個地方爆發了戰爭，導致家園遭受摧殘，人民流離失所。<br>
+            為了重建家園，團長索貝德號召人民成立了一個流浪馬戲團，四處表演以籌措資金。<br>
+            如今，媒利媒卡馬戲團聲名遠播，巡迴一圈後終於回到媒卡城，準備進行盛大的演出，邀請各地人們來觀賞這個傳奇馬戲團的光彩。<br>
+            <br>
+            團長的兒子安瓦爾和撫養他長大的阿姨穆娜負責接待各地來的旅客。<br>
+            安瓦爾雖對父親長年不歸感到不滿，但心底裡也渴望著父親的回來。<br>
+            對他來說，父親一直是他景仰的存在。<br>
+            <br>
+            那一晚，馬戲團精彩的表演讓所有人嘆為觀止。<br>
+            壓軸的紅牌小丑哈里瑪邀請安瓦爾上台表演，卻在舞台上塞給他一包粉末，<br>
+            這突如其來的舉動讓所有人困惑。<br>
+            此時，索貝德緊急上台終止了演出，這一切都讓安瓦爾懷疑馬戲團中隱藏著什麼秘密。<br>
+            <br>
+            父親究竟在隱瞞什麼？<br>
+            <br>
+            隔天，安瓦爾和穆娜展開了調查，<br>
+            發現昨晚的粉末學名為「MRMK」，而它的原料竟然是穆娜所種植的沙漠玫瑰。<br>
+            過去在馬戲團最低潮的時期，團長意外發現沙漠玫瑰經過加工製成粉末後，具有讓人快樂的效果，<br>
+            此後索貝德開始大量製造並加以運用，這使馬戲團內部低落的士氣得以重振，<br>
+            也讓觀眾一進入馬戲團就感到歡樂，一離開便覺得空虛，進而一再回到馬戲團。<br>
+            然而沒想到的是，馬戲團收養的孩子哈里瑪，原來是安瓦爾失散已久的兒時玩伴，<br>
+            長大後的她為了報答馬戲團，偷偷使用MRMK來提升自己的表演效果，<br>
+            久而久之，她變得瘋瘋癲癲，行為難以捉摸。<br>
+            <br>
+            安瓦爾得知真相後感到憤怒，衝進團長辦公室，這是他自出生以來第一次頂撞父親。<br>
+            他們爭吵中意外破壞了MRMK的開關，導致粉末散布在整個媒卡城。<br>
+            吸入粉末的居民情緒混亂，小城瞬間陷入混亂。<br>
+            為了守護家園和照顧穆娜，安瓦爾請求旅客們的幫忙，<br>
+            在過程中他們發現小鎮的特產媒利果，不只對媒卡城居民而言有祝福的意涵、<br>
+            同時也具有安定人心的效用，能夠有效的抑制MRMK帶來的影響。<br>
+            <br>
+            在旅客的協助下，不安的夜終於過去。<br>
+            索貝德雖然對居民感到內疚，但仍然深信MRMK是馬戲團的根基，沒有它馬戲團就無法再經營。<br>
+            原先這天晚上就有一場旅客和居民們為馬戲團辦的驚喜晚會，安瓦爾想藉此向父親證明，<br>
+            即使沒有MRMK，只要用心投入，快樂就是如此簡單。<br>
+            <br>
+            在晚會中，看著大家生澀的表演，索貝德彷彿看見了馬戲團剛成立時的模樣。<br>
+            此時，他終於想起馬戲團的初衷，是要讓大家打從心底感到快樂，自動自發地前來。<br>
+            馬戲團奔波多年，他卻忘記了這個最簡單的道理。<br>
+            <br>
+            最終，索貝德決定將馬戲團的經營權交給兒子，讓安瓦爾代替他去巡迴表演，<br>
+            而自己則留下來修復因MRMK造成的傷害，並重建家園。<br>
+            他將馬戲團因MRMK獲得的收入用來重建家園，並將剩餘的錢交給安瓦爾去幫助需要的人們。<br>
+            <br>
+            回想那幾天，即使沒有MRMK，媒利媒卡的回憶也深深烙印在每個旅客的心中。</p>
+    </div>
+
+    <!-- 確保正確加載 Bootstrap 的 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        window.addEventListener('load', function() {
+            // 延遲 3 秒後隱藏 loading 動畫
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 2500); // 3000 毫秒即 3 秒
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const paragraphs = document.querySelectorAll('.story-paragraph');
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            paragraphs.forEach(paragraph => {
+                observer.observe(paragraph);
+            });
+        });
+    </script>
+</body>
+</html>

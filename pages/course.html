@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程介紹</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-color: #a01f24;
+            /* 背景顏色 */
+            color: #fff;
+        }
+
+        .course-grid {
+            display: grid;
+            padding-top:80px ;
+            margin-bottom: 40px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+        }
+
+        .course-btn,
+        .wide-btn {
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+
+        .course-btn img,
+        .wide-btn img {
+            margin-top: 100px;
+            width: 120px;
+            height: auto;
+        }
+
+        .course-btn:hover,
+        .wide-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .course-content {
+            display: none;
+            background-color: #fff4d9;
+            color: #a01f24;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        .course-content img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+
+        .course-content video {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+
+        .course-content-text {
+            flex: 1;
+            margin: auto;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        <img src="../loading/load-15.svg" alt="Loading...">
+    </div>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../components/nav-index.html");
+        }); 
+    </script>
+
+    <div class="container" id="course">
+        <div class="course-grid">
+            <div class="course-btn" data-course="course1">
+                <img src="../課程/課程1.svg" alt="課程 1">
+            </div>
+            <div class="course-btn" data-course="course2">
+                <img src="../課程/課程2.svg" alt="課程 2">
+            </div>
+            <div class="course-btn" data-course="course3">
+                <img src="../課程/課程3.svg" alt="課程 3">
+            </div>
+            <div class="course-btn" data-course="course4">
+                <img src="../課程/課程4.svg" alt="課程 4">
+            </div>
+            <div class="course-btn" data-course="course5">
+                <img src="../課程/課程5.svg" alt="課程 5">
+            </div>
+            <div class="course-btn" data-course="course6">
+                <img src="../課程/課程6.svg" alt="課程 6">
+            </div>
+        </div>
+        <div id="course1" class="course-content">
+            <img src="../課程/音效設計-講師劉育瑋.png" alt="課程 1 圖片">
+            <div class="course-content-text">
+                <h2>祕傳奏術</h2>
+                <p>———————————————————————————————————————————</p>
+                <h4>講師：劉育瑋</h4>
+                <p>成功的表演必須能深入觀眾的心裡，<br>
+                    而想要深入人心就必須讓他們沉浸在聲音的漩渦裡！<br>
+                    跟著馬戲團最強奏術師來學習如何創造一場聽覺盛宴吧！</p>
+                <p>———————————————————————————————————————————</p>
+            </div>
+        </div>
+        <div id="course2" class="course-content">
+            <img src="../課程/角色設計-講師翁漢騰.png" alt="課程 2 圖片">
+            <div class="course-content-text">
+                <h2>形影奇術</h2>
+                <p>———————————————————————————————————————————</p>
+                <h4>講師：翁漢騰</h4>
+                <p>在媒利媒卡的馬戲團魔術表演中，魔術師將親自指導你們掌握神奇的魔法技巧，<br>
+                    無論是揭示幻影的秘密，還是展現融合剪影和角色設計的奇幻魔術，<br>
+                    話不多說，接下來就讓我們一同學習「形影奇術」創建令人驚嘆的魔術表演吧！</p>
+                <p>———————————————————————————————————————————</p>
+            </div>
+        </div>
+        <div id="course3" class="course-content">
+            <img src="../課程/AE_蘇楷博.png" alt="課程 3 圖片">
+            <div class="course-content-text">
+                <h2>操偶魔術</h2>
+                <p>———————————————————————————————————————————</p>
+                <h4>講師：蘇楷博</h4>
+                <p>牽線木偶能夠在舞台上靈活的蹦跳，<br>
+                    都是因為隱身台後的操偶師替其注入了靈魂。<br>
+                    學習「操偶魔術」課程，各位遊客就能使用特效軟體，讓手上的角色靈活躍動！</p>
+                <p>———————————————————————————————————————————</p>
+            </div>
+        </div>
+        <div id="course4" class="course-content">
+            <img src="../課程/MAYA-講師魏君恆.png" alt="課程 4 圖片">
+            <div class="course-content-text">
+                <h2>模幻舞台</h2>
+                <p>———————————————————————————————————————————</p>
+                <h4>講師：魏君恆</h4>
+                <p>看過了馬戲團的精采表演，<br>
+                    你也想掌握無中生有、空手創造奇蹟的方法嗎？<br>
+                    那就快點踏上我們的「模幻舞台」，使用建模軟體創造奇蹟！</p>
+                <p>———————————————————————————————————————————</p>
+            </div>
+        </div>
+        <div id="course5" class="course-content">
+            <img src="../課程/Unity-講師許志維.png" alt="課程 5 圖片">
+            <div class="course-content-text">
+                <h2>赤鳥操術</h2>
+                <p>———————————————————————————————————————————</p>
+                <h4>講師：許志維</h4>
+                <p>赤鳥操術是馬戲團的術師能夠讓赤鳥操縱自如的能力。<br>
+                    他將會把其中的訣竅【魔術引擎】教給各位遊客，<br>
+                    讓你們也能用赤鳥摧毀面前的阻礙！
+                </p>
+                <p>———————————————————————————————————————————</p>
+            </div>
+        </div>
+        <div id="course6" class="course-content">
+            <img src="../課程/PR_林晉維_with_audio.png" alt="課程 6 圖片">
+            <div class="course-content-text">
+                <h2>虛影戲法</h2>
+                <p>——————————————————————————</p>
+                <h4>講師：林晉維、楊清皓</h4>
+                <p>馬戲團魔術師總是身懷絕技，<br>
+                    用錯覺和幻象帶給大家視覺饗宴。<br>
+                    而現在我們將使用剪輯軟體，重新組接影像，<br>
+                    帶大家學習像變魔術般的「虛影戲法」！</p>
+                <p>——————————————————————————</p>
+            </div>
+            <img src="../課程/PR_楊清皓_with_audio.png" alt="課程 6 圖片">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.course-btn, .wide-btn').click(function () {
+                var courseId = $(this).data('course');
+                $('.course-content').slideUp(); // 先隱藏所有課程內容
+                $('#' + courseId).slideDown(); // 顯示當前點擊的課程內容
+            });
+        });
+        window.addEventListener('load', function () {
+            // 延遲 2 秒後隱藏 loading 動畫
+            setTimeout(function () {
+                document.getElementById('loading').style.display = 'none';
+            }, 2500); // 2000 毫秒即 2 秒
+        });
+    </script>
+</body>
+
+</html>

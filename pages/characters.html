@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物介紹</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-image: url('../環節/BG-08.svg');
+            /* 設定您想要的背景顏色 */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .left-column {
+            width: 40%;
+            padding: 50px;
+        }
+
+        .right-column {
+            width: 75%;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-img {
+            width: 30%;
+            /* 設置頭貼大小 */
+            height: auto;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* 添加過渡效果 */
+        }
+
+        .character-img:hover {
+            transform: scale(1.1);
+            /* 鼠標靠近時縮放效果 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* 鼠標靠近時添加陰影效果 */
+        }
+
+        .character-img:active {
+            transform: scale(0.9);
+            /* 點擊時縮放效果 */
+        }
+
+        .character-description {
+            margin-bottom: 20px;
+        }
+
+        .character-description2 {
+            margin-bottom: 20px;
+        }
+
+        .character-full-img {
+            width: 100%;
+            transition: transform 0.1s ease-out;
+            /* 添加過渡效果 */
+        }
+
+        .container {
+            position: relative;
+            top: 100px;
+            display: flex;
+
+        }
+
+        .character-thumbnails {
+            width: 100%;
+            display: flex;
+            margin: auto;
+            flex-wrap: nowrap;
+            overflow: visible;
+            position: relative;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .arrow-left {
+            left: -50px;
+            width: 70px;
+            /* 根據需要調整大小 */
+            height: 70px;
+            /* 根據需要調整大小 */
+            background-image: url('../環節/左箭頭.png');
+            /* 替換為你的自定義左箭頭圖片路徑 */
+            background-size: contain;
+            background-repeat: no-repeat;
+            border: none;
+            /* 移除邊框 */
+        }
+
+        .arrow-right {
+            right: 0;
+            width: 70px;
+            /* 根據需要調整大小 */
+            height: 70px;
+            /* 根據需要調整大小 */
+            background-image: url('../環節/右箭頭.png');
+            /* 替換為你的自定義右箭頭圖片路徑 */
+            background-size: contain;
+            background-repeat: no-repeat;
+            border: none;
+            /* 移除邊框 */
+        }
+
+        .arrow {
+            top: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        <img src="../loading/load-15.svg" alt="Loading...">
+    </div>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../components/nav-index.html");
+        }); 
+    </script>
+    <div class="container">
+        <div class="left-column">
+            <h2 id="character-name">安瓦爾</h2>
+            <p id="character-description">聰明機靈又可愛的16歲中東少年
+                時常幫城鎮的居民解決問題，是鎮上的開心果</p>
+            <p id="character-description2">他也是團長索貝德的兒子，但因父親長年不在家，由阿姨穆娜扶養</p>
+
+            <div class="character-thumbnails">
+                <span class="arrow arrow-left"></span>
+
+                <img src="../characters/頭貼一.png" class="character-img" data-name="安瓦爾" data-description="聰明機靈又可愛的16歲中東少年
+                時常幫城鎮的居民解決問題，是鎮上的開心果" data-description2="他也是團長索貝德的兒子，但因父親長年不在家，由阿姨穆娜扶養"
+                    data-full-img="../characters/安瓦爾（調色版） (1).png">
+                <img src="../characters/頭貼二.png" class="character-img" data-name="穆娜"
+                    data-description="30幾歲的輕熟女，是索貝德團長的妹妹。也是安瓦爾身邊最親的人"
+                    data-description2="保養得宜所以顯得十分年輕，待人溫柔。其實很膽小，但在遇到危險時總會站出來保護安瓦爾"
+                    data-full-img="../characters/穆娜（調色版） (1).png">
+                <img src="../characters/頭貼三.png" class="character-img" data-name="哈里瑪" data-description="馬戲團裡的紅牌小丑，長年戴著面具
+                除了索貝德以外，沒人知道他的真實身分" data-description2="行為瘋癲、難以捉摸，但他的表演卻是數一數二的精彩
+                在怪異的舉止下有顆溫暖的心，對馬戲團裡的動物很好" data-full-img="../characters/哈里瑪（調色版） (1).png">
+                <img src="../characters/頭貼四.png" class="character-img" data-name="索貝德" data-description="知名流浪馬戲團的團長
+                年齡約40歲，外表光鮮亮麗且胸懷大志的中東男士" data-description2="為了重建戰爭後受到摧殘的家園而帶領馬戲團去巡迴演出
+                無論戲裡戲外都是領導力很強的人，團員們都很尊敬他" data-full-img="../characters/索貝德（調色版） (1).png">
+                <img src="../characters/嘻嘻.png" class="character-img" data-name="嘻嘻"
+                    data-description="城裡備受寵愛的雙峰駱駝，其實是外地商人的坐騎，總是喜歡自己亂跑所以商人常常找不到他"
+                    data-description2="最喜歡的食物是仙人掌，每天都會在綠洲附近閒晃追仙人掌(?)" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/訓獸師.png" class="character-img" data-name="格拉德"
+                    data-description="養了三隻猴子的馬戲團馴獸師，待人十分熱情，因為分不清自己頑皮的猴子而常常找不著被他們偷走的東西，是個有點粗心的人"
+                    data-description2="最喜歡動物們，通常都待在團員宿舍中" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/打雜.png" class="character-img" data-name="阿布"
+                    data-description="馬戲團中的打雜小弟，年紀和安瓦爾差不多大，活潑且認真負責，其實有著一顆想上台表演的心"
+                    data-description2="跟哈里瑪一樣是被馬戲團收養的孩子，但兩人關係並不是太熟識，哈里瑪不穩定的行為讓阿布覺得她十分奇怪。，"
+                    data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/特技術師.png" class="character-img" data-name="埃米爾"
+                    data-description="馬戲團中的特技表演者，對自己的要求很高，總覺得自己的表演比不上別人"
+                    data-description2="常窩在宿舍中苦練特技，據說心情不好時會吃仙人掌，和團裡的魔術師是多年好友" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/魔術師.png" class="character-img" data-name="莫卡"
+                    data-description="馬戲團裡的資歷數一數二的成員，年紀甚至比團長大些，個性有些輕浮，出神入化的魔術技法總能抓住觀眾的眼睛"
+                    data-description2="和特技術師是老友，平常的喜好是攔住居民讓他們看他練的新戲法並把他們耍得團團轉" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/面紗女.svg" class="character-img" data-name="奈莎"
+                    data-description="沒人知道她從哪來，也沒人看過她拿下面紗的樣子，常常呢喃著一些如夢境般的預言" data-description2="通常出沒在驛站，是個神祕的存在"
+                    data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/賣書人.svg" class="character-img" data-name="歐文"
+                    data-description="城裡的賣書人，做事謹慎、慢條斯理，需要安靜點才能聽清他說什麼" data-description2="喜歡看書、品茶，也會辦理讀書會讓媒卡城的孩子們獲得更多的知識"
+                    data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/雙胞胎.svg" class="character-img" data-name="沙漠媒閨"
+                    data-description="布商最疼愛的兩個女兒，妹妹內向溫和，姐姐活潑開朗，兩姊妹感情十分的好"
+                    data-description2="通常穿著吊帶格紋裙，打扮十分特別，平常喜歡找人陪他們玩各種遊戲，" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/布商.svg" class="character-img" data-name="卡內基"
+                    data-description="城裡知名的布商，給人親切的大哥感，最疼愛兩個寶貝女兒" data-description2="身上總是匹著布，顯得十分厚重，常在市集裡和寶石商互相炫耀和比較"
+                    data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/啞巴.svg" class="character-img" data-name="崔美"
+                    data-description="城裡的啞巴女孩，需要寫字才能與她溝通，穿著破爛，對外地人十分敏感，但居民們都十分照顧她"
+                    data-description2="通常會窩在市集附近，最喜歡她的大象娃娃，在戰爭失去雙親後只剩下這隻娃娃陪伴她" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/刺客.svg" class="character-img" data-name="伊西里斯"
+                    data-description="寡言神秘的刺客，身穿黑衣，身上總是配著一把金色的短刃" data-description2="當有高額懸賞或稀世珍寶時就能看見他的身影"
+                    data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/香料.svg" class="character-img" data-name="賈拉德"
+                    data-description="精明的香料商人，留著大大的鬍子和長袍，想要從他口中得到優惠可說是不可能的"
+                    data-description2="平時會向穆娜進購沙漠玫瑰製成香料，一年四季幾乎都會在市集叫賣" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/叔叔.svg" class="character-img" data-name="阿希克"
+                    data-description="媒卡城裡健談的大叔，因為戰爭失去了左腳，常不斷地回憶過去的種種，從他口中能聽到很多小城故事"
+                    data-description2="至今仍是單身漢，常嚷嚷著想找到真命天女" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/外地商人.svg" class="character-img" data-name="Alex"
+                    data-description="風趣討喜的外地商人，常混雜著英語說話，一直希望能在沙漠推廣墨鏡生意" data-description2="其實是駱駝嘻嘻的主人，但嘻嘻總是不會乖乖待在驛站"
+                    data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/寶石商.svg" class="character-img" data-name="提法希"
+                    data-description="愛珠寶成痴的寶石商，性格有些孤僻，喜歡任何鑲有寶石的家具擺飾"
+                    data-description2="時常在市集裡炫耀自己的珠寶配飾，意外的和愛炫耀女兒的布商有說不出的默契" data-full-img="../characters/RPG腳色.png">
+                <img src="../characters/仙人掌.svg" class="character-img" data-name="仙人掌"
+                    data-description="會說話的仙人掌，喜歡聊天，但記性差又面盲所以常常說重複的話" data-description2="據說是食物鏈底層，常被駱駝、埃米爾等人或動物追著跑"
+                    data-full-img="../characters/RPG腳色.png">
+                <span class="arrow arrow-right"></span>
+
+            </div>
+        </div>
+        <div class="right-column">
+            <img src="../characters/安瓦爾（調色版） (1).png" id="full-img" class="character-full-img">
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+
+
+        $(document).ready(function () {
+            $('.character-img').click(function () {
+                var name = $(this).data('name');
+                var description = $(this).data('description');
+                var description2 = $(this).data('description2');
+                var fullImg = $(this).data('full-img');
+
+                $('#character-name').text(name);
+                $('#character-description').text(description);
+                $('#character-description2').text(description2)
+                $('#full-img').attr('src', fullImg);
+            });
+
+            const fullImg = document.getElementById('full-img');
+            const rightColumn = document.querySelector('.right-column');
+
+            rightColumn.addEventListener('mousemove', function (e) {
+                const { left, top, width, height } = rightColumn.getBoundingClientRect();
+                const x = (e.clientX - left) / width;
+                const y = (e.clientY - top) / height;
+                const moveX = (x - 0.5) * 30; // 调整视差效果的幅度
+                const moveY = (y - 0.5) * 30;
+                fullImg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+
+            rightColumn.addEventListener('mouseleave', function () {
+                fullImg.style.transform = 'translate(0, 0)';
+            });
+
+            let currentIndex = 0;
+            const thumbnails = document.querySelector('.character-thumbnails');
+            const images = thumbnails.querySelectorAll('.character-img');
+            const totalImages = images.length;
+            const imagesPerPage = 2; // 每頁顯示的圖片數量
+
+            function showPage(index) {
+                images.forEach((img, i) => {
+                    img.style.display = (i >= index && i < index + imagesPerPage) ? 'block' : 'none';
+                });
+            }
+
+            document.querySelector('.arrow-left').addEventListener('click', function () {
+                currentIndex = (currentIndex - imagesPerPage + totalImages) % totalImages;
+                showPage(currentIndex);
+            });
+
+            document.querySelector('.arrow-right').addEventListener('click', function () {
+                currentIndex = (currentIndex + imagesPerPage) % totalImages;
+                showPage(currentIndex);
+            });
+
+            showPage(currentIndex);
+        });
+
+        window.addEventListener('load', function () {
+            // 延遲 2 秒後隱藏 loading 動畫
+            setTimeout(function () {
+                document.getElementById('loading').style.display = 'none';
+            }, 2500); // 2000 毫秒即 2 秒
+        });
+    </script>
+</body>
+
+</html>

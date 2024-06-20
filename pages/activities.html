@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>環節</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-image: url('../環節/BG-08.svg');
+            /* 統一的背景顏色 */
+            color: rgb(255, 255, 255);
+            /* 讓文字顏色為白色以更好地在紅色背景上顯示 */
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            /* 調整為適當的寬度 */
+            margin: auto;
+            padding-top: 180px;
+            /* 增加顶部的間距，防止遮蓋 */
+            margin-bottom: 120px;
+            /* 增加底部的間距 */
+            height: 55em;
+            /* 設置固定高度 */
+            overflow: visible;
+            /* 确保图片不被隐藏 */
+        }
+
+        .carousel {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .carousel img {
+            width: 300px;
+            /* 設置固定寬度 */
+            height: auto;
+            position: absolute;
+            transform: translate(-50%, -50%) scale(0.8);
+            top: 50%;
+            left: 50%;
+            transition: transform 0.5s ease-in-out, z-index 0.5s ease-in-out;
+            cursor: pointer;
+            /* 指針變成手型 */
+        }
+
+        .carousel img.active {
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 9;
+        }
+
+        .carousel img.next {
+            transform: translate(-50%, -50%) scale(0.9) translateX(100px);
+            z-index: 5;
+        }
+
+        .carousel img.prev {
+            transform: translate(-50%, -50%) scale(0.9) translateX(-100px);
+            z-index: 5;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 150px;
+            /* 自定義箭頭的寬度 */
+            height: 150px;
+            /* 自定義箭頭的高度 */
+            background-size: cover;
+            /* 讓背景圖片覆蓋整個按鈕 */
+            overflow: visible;
+            border: none;
+            cursor: pointer;
+            z-index: 9;
+        }
+
+        .arrow-left {
+            margin: auto;
+            left: 10px;
+            background-color: #77121400;
+            background-image: url('../環節/左箭頭.png');
+            /* 替換為你的左箭頭圖片路徑 */
+        }
+
+        .arrow-right {
+            margin: auto;
+            right: 10px;
+            background-color: #77121400;
+            background-image: url('../環節/右箭頭.png');
+            /* 替換為你的右箭頭圖片路徑 */
+        }
+
+        .game-list {
+            width: 50%;
+            padding-left: 20%;
+        }
+
+        .content-section {
+            padding: 50px;
+            padding-top: 150px;
+            padding-bottom: 150px;
+            background-color: #771214;
+            margin-top: 20px;
+            display: flex;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-section .left-column {
+            flex: 0 0 40%;
+            /* 固定左側寬度 */
+            max-width: 40%;
+            /* 確保左側寬度不超過40% */
+            padding-right: 20px;
+            position: sticky;
+            top: 80px;
+            /* 距離頂部20px */
+            height: fit-content;
+            /* 自適應高度 */
+        }
+
+        .content-section .right-column {
+            padding: 30px 80px;
+            background-color: #fff9f4cd;
+            color: #771214;
+            margin-top: 20px;
+            border-radius: 10px;
+            flex: 1;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-section h2 {
+            margin-top: 0;
+        }
+
+        .content-section p {
+            margin-bottom: 0;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .section-img {
+            width: auto;
+            height: auto;
+            margin-left: 50px;
+            max-height: calc(100vh * 0.8);
+            /* 設置圖片最大高度為視窗高度的三分之二 */
+            object-fit: contain;
+            /* 確保圖片在其框內保持比例 */
+            animation: floating 2s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="loading">
+        <img src="../loading/load-15.svg" alt="Loading...">
+    </div>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../components/nav-index.html");
+        }); 
+    </script>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="../環節/A.png" class="active">
+            <img src="../環節/B.png" class="next">
+            <img src="../環節/C.png" class="next">
+            <img src="../環節/D.png" class="next">
+            <img src="../環節/E.png" class="next">
+            <img src="../環節/F.png" class="next">
+        </div>
+        <button class="arrow arrow-left"></button>
+        <button class="arrow arrow-right"></button>
+    </div>
+
+    <div id="section-a" class="content-section hidden">
+        <div class="left-column">
+            <img src="../環節/A.png" class="section-img">
+        </div>
+        <div class="right-column">
+            <h3>早安媒卡城</h3>
+            <p>媒卡城中，每天早上居民們都會在綠洲歌舞著這首曲子。</p>
+            <p>——————</p>
+            <h4>歌詞</h4>
+            <p>金色大海和沙丘 徜徉藍泉和綠洲<br>
+                馬戲團早在等候 邁開腳步跟著我<br>
+                別再多說 盡情享受<br>
+                <br>
+                舞台的紅幕 為你揭開<br>
+                聚光燈下 熱情喝采<br>
+                煩惱難過都不再<br>
+                讓你滿心期待 不想離開<br>
+                <br>
+                氣氛升溫 小丑狂熱<br>
+                魔術奇蹟 與你見證<br>
+                不要浪費每一刻快樂<br>
+                當夢的履行者<br>
+
+                *<br>
+
+                光束照映在夜空 棚外人群如潮湧<br>
+                心中滿懷著悸動<br>
+                好想快深入馬戲團其中<br>
+                <br>
+                舞台的紅幕 為你揭開<br>
+                聚光燈下 熱情喝采<br>
+                煩惱難過都不再<br>
+                讓你滿心期待 不想離開<br>
+                <br>
+                氣氛升溫 小丑狂熱<br>
+                魔術奇蹟 與你見證<br>
+                不要浪費每一刻快樂<br>
+                當夢的履行者<br>
+                <br>
+                歡笑延續讓畫面定格<br>
+                把握當下在此時此刻<br>
+                不會忘記真正的快樂<br>
+                當夢的履行者<br>
+            </p>
+            <p>——————</p>
+            <h4>營歌 MV</h4>
+            <br>
+            <video width="100%" height="auto" controls>
+                <source src="../環節/營歌.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+    </div>
+
+    <div id="section-b" class="content-section hidden">
+        <div class="left-column">
+            <img src="../環節/B.png" class="section-img">
+        </div>
+        <div class="right-column">
+            <h3>馬戲媒麥</h3>
+            <p>由於遊客到來時馬戲團還在準備，因此由安瓦爾和穆娜先招待遊客。<br>
+                他們準備了許多媒卡城特色活動讓遊客們參與，<br>居民們在介紹這些遊戲時，言語之間也流露出對馬戲團的驕傲。<br></p>
+
+            <br>
+            <ul class="game-list">
+                <li>團長說(遊戲一)</li>
+                <br>
+                <li>當我們抱在一起(遊戲二)</li>
+                <br>
+                <li>BINGO！(遊戲三)</li>
+                <br>
+                <li>守護家園(遊戲四)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="section-c" class="content-section hidden">
+        <div class="left-column">
+            <img src="../環節/C.png" class="section-img">
+        </div>
+        <div class="right-column">
+            <h3>媒利媒卡 SHOWSTART</h3>
+            <p>夜幕降臨，團長索貝德與小丑哈里瑪上台開啟了盛大晚會的序幕。<br>
+                <br>
+                在歡聲笑語下迎來表演最高潮-小丑哈里瑪的壓軸表演。<br>
+                哈里瑪選擇安瓦爾當這次的表演助手，卻發現他上台時眼眶含著淚水。<br>
+                原來前面的遊戲讓安瓦爾想起過去戰爭失散的一個朋友，如今他已忘了對方的面容，回憶卻刻在心中。<br>
+                <br>
+                一旁的哈里瑪為了安慰安瓦爾，向他遞了一包奇怪粉末，<br><em>「不要哭，吸這個就會開心笑喔!」</em><br>
+                <br>
+                此時索貝德從後台出現將粉包搶走，指責哈里瑪不該將這東西拿出來，<br>
+                被訓斥的哈里瑪逃出了馬戲棚，索貝德也著急地追了上去，晚會在一連串突發狀況下嘎然而止……
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <div id="section-d" class="content-section hidden">
+            <div class="left-column">
+                <img src="../環節/D.png" class="section-img">
+            </div>
+            <div class="right-column">
+                <h3>午安媒卡城</h3>
+                <p>在晚會結束後，團長和小丑都不見了人影，<br>
+                    安瓦爾因為昨天發生的事展開調查，遊客們則由穆娜負責帶領參觀，<br>
+                    各旅團拿著媒卡城的地圖，尋找這座小城所埋藏的秘密。<br>
+                    <br>
+                    在馬戲團員的口中遊客們發現小丑似乎有在服用藥物，<br>
+                    香料商的交易紀錄也顯示出這些年來<br>一直有人大量購買媒卡城特產「沙漠玫瑰」，<br>
+                    並加工製成了一種名為MRMK的藥物。<br>
+                    謎底漸漸浮出水面，安瓦爾決定請大家幫忙找尋哈里瑪。<br>
+                    <br>
+                    在找尋小丑的過程中遊客們也得知馬戲團一直是依靠MRMK才如此興盛，<br>
+                    導致小丑哈里瑪如此情緒不穩的原因也是吸食太多的MRMK，<br>
+                    而哈里瑪的真實身分，就是安瓦爾戰爭失散的那位兒時玩伴，<br>
+                    這一切來的太突然，悲憤的安瓦爾無論如何都想向爸爸問清楚.......
+                </p>
+                <h4>媒卡城地圖</h4>
+                <br>
+                <img width="400px" height="auto" src="../環節/一般.png" alt="img.png">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="section-e" class="content-section hidden">
+            <div class="left-column">
+                <img src="../環節/E.png" class="section-img">
+            </div>
+            <div class="right-column">
+                <h3>冥漠之夜</h3>
+                <p>在團長辦公室中，安瓦爾與索貝德的爭吵意外導致MRMK撒粉裝置損壞，<br>
+                    大量不穩定的粉末散播在空氣中，受影響的居民和團員性情大變，瘋癲不已<br>
+                    這個夜晚注定不得安寧……</p>
+                <br>
+                <video width="100%" height="auto" controls>
+                    <source src="../環節/媒利媒卡_夜教預告.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div id="section-f" class="content-section hidden">
+            <div class="left-column">
+                <img src="../環節/F.png" class="section-img">
+            </div>
+            <div class="right-column">
+                <h3>媒利媒卡 RESTART</h3>
+                <p>在驚悚的一夜後，索貝德雖對居民感到愧疚，但仍堅信MRMK不能停產，<br>
+                    他與安瓦爾兩人在早會不歡而散，安瓦爾和遊客們決定用一場回歸本質的表演來打動索貝德。<br>
+                    <br>
+                    當晚，看著眾人細心籌備的演出，<br>索貝德終於找回快樂的初衷，那個最青澀的自我。<br>
+                    <br>
+                    最後他決定將馬戲團交付給兒子安瓦爾，<br>自己則留在媒卡城彌補他犯下的錯誤，<br>
+                    <br>
+                    媒利媒卡馬戲團將迎來新的開始。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousel = document.querySelector('.carousel');
+            const leftArrow = document.querySelector('.arrow-left');
+            const rightArrow = document.querySelector('.arrow-right');
+            let currentIndex = 0;
+            const images = Array.from(carousel.querySelectorAll('img'));
+
+            rightArrow.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            });
+
+            leftArrow.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            });
+
+            function updateCarousel() {
+                images.forEach((img, index) => {
+                    img.classList.remove('active', 'next', 'prev');
+                    if (index === currentIndex) {
+                        img.classList.add('active');
+                    } else if (index === (currentIndex + 1) % images.length) {
+                        img.classList.add('next');
+                    } else if (index === (currentIndex - 1 + images.length) % images.length) {
+                        img.classList.add('prev');
+                    }
+                });
+            }
+
+            updateCarousel();
+
+            // Delayed Intersection Observer setup
+            setTimeout(() => {
+                const sections = document.querySelectorAll('.content-section');
+                const options = {
+                    threshold: 0.3 // Section is considered visible when 30% of it is in the viewport
+                };
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            entry.target.classList.remove('hidden');
+                            observer.unobserve(entry.target); // Stop observing once it becomes visible
+                        }
+                    });
+                }, options);
+
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            }, 1000); // Delay of 1 second
+
+            // Function to scroll to a specific section
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Add click event listeners to carousel images
+            images[0].addEventListener('click', () => scrollToSection('section-a'));
+            images[1].addEventListener('click', () => scrollToSection('section-b'));
+            images[2].addEventListener('click', () => scrollToSection('section-c'));
+            images[3].addEventListener('click', () => scrollToSection('section-d'));
+            images[4].addEventListener('click', () => scrollToSection('section-e'));
+            images[5].addEventListener('click', () => scrollToSection('section-f'));
+        });
+        window.addEventListener('load', function () {
+            // 延遲 2 秒後隱藏 loading 動畫
+            setTimeout(function () {
+                document.getElementById('loading').style.display = 'none';
+            }, 2500); // 2000 毫秒即 2 秒
+        });
+    </script>
+</body>
+
+</html>

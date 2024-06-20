@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Display</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/video.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+<style>
+    #loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* 半透明背景 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        /* 保證在最上層 */
+    }
+
+    #loading img {
+        width: auto;
+        /* 根據需要調整圖示大小 */
+        height: 200px;
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+
+        40% {
+            transform: translateY(-30px);
+        }
+
+        60% {
+            transform: translateY(-15px);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <div id="loading">
+        <img src="../loading/load-15.svg" alt="Loading...">
+    </div>
+
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../components/nav-red.html");
+        });
+    </script>
+
+    <div class="container">
+        <div class="buttons">
+            <nav class="navbar"id="navbar">
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a href="#" onclick="showVideo('aVideo')">前導片</a>
+                    </li>
+            
+                    <li class="menu-item">
+                        <a href="#" onclick="showVideo('bVideo')">動動貼文</a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" onclick="showVideo('cVideo')">系上作品展示</a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">部門影片</a>
+                        <ul class="submenu">
+                            <li><a href="#" onclick="showVideo('departmentVideo1')">活動X器材</a></li>
+                            <li><a href="#" onclick="showVideo('departmentVideo2')">影視X課研</a></li>
+                            <li><a href="#" onclick="showVideo('departmentVideo3')">美宣</a></li>
+                            <li><a href="#" onclick="showVideo('departmentVideo4')">總務X銷防</a></li>
+                            <li><a href="#" onclick="showVideo('departmentVideo5')">總召X隊輔</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">倒數影片</a>
+                        <ul class="submenu">
+                            <li><a href="#" onclick="showVideo('ddayVideo1')">倒數一天</a></li>
+                            <li><a href="#" onclick="showVideo('ddayVideo2')">倒數兩天</a></li>
+                            <li><a href="#" onclick="showVideo('ddayVideo3')">倒數三天</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">動態吉祥物</a>
+                        <ul class="submenu">
+                            <li><a href="#" onclick="showVideo('cuteVideo1')">哈里瑪</a></li>
+                            <li><a href="#" onclick="showVideo('cuteVideo2')">穆娜</a></li>
+                            <li><a href="#" onclick="showVideo('cuteVideo3')">安瓦爾</a></li>
+                            <li><a href="#" onclick="showVideo('cuteVideo4')">索貝德</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="video-display" id="video-display">
+            <iframe id="video-iframe" width="100%" height="100%" frameborder="0" allowfullscreen
+                style="display: none;"></iframe>
+            <video id="video-player" controls style="display: none;">
+                <source id="video-source" src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            // 延遲 2 秒後隱藏 loading 動畫
+            setTimeout(function () {
+                document.getElementById('loading').style.display = 'none';
+            }, 2500); // 2000 毫秒即 2 秒
+        });
+    </script>
+
+    <script src="../assets/js/video.js"></script>
+</body>
+
+</html>
