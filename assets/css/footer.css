@@ -1,0 +1,35 @@
+.footer {
+    background-color: #222;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #7d6c6c;
+  }
+  
+  .footer a {
+    color: #7d6c6c;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    color: #fff4d9;
+  }
+  
+  .footer h5 {
+    color: rgb(87, 40, 40);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .footer ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .footer ul li {
+    padding-bottom: 5px;
+  }
+  
+  .footer .p-3{
+    background-color: rgb(80, 30, 30);
+    color: rgb(161, 87, 90);
+  }

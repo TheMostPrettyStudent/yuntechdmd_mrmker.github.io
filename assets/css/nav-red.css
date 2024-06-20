@@ -1,0 +1,65 @@
+.navbar {
+  background-color: rgb(197, 43, 48) !important;
+  position: fixed;
+  width: 100%;
+  height: 81.45px ;
+  margin: 0 auto;
+  z-index: 3;
+  /* 確保在其他元素之上 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  z-index: 10 ;
+}
+
+.navbar-brand img {
+  filter: brightness(0) invert(1);
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: #ffffff;
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff4d9;
+}
+
+
+
+.dropdown-menu {
+  background-color: rgb(160 31 36);
+}
+
+.dropdown-item {
+  color: #fff4d9;
+  font-size: 18px;
+}
+
+.dropdown-item:hover {
+  background-color: #fff4d9;
+  /* 设置鼠标悬停时的背景颜色 */
+  color: rgb(37, 37, 37);
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dropdown-menu.show {
+  animation-name: slide-down;
+  animation-duration: 0.3s;
+}
+
+.dropdown-divider {
+  border-top: 2px solid #ffffff;
+  /* 設置分隔線的粗細和顏色 */
+}

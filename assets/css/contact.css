@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'Noto Serif TC';
+    src: url('../fonts/static/NotoSerifTC-Medium.ttf') format('truetype'),
+}
+
+@font-face {
+    font-family: 'Noto Serif TC Bold';
+    src: url('../fonts/static/NotoSerifTC-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Mirza';
+    src: url('../fonts/Mirza/Mirza-Regular.ttf') format('truetype');
+}
+
+body {
+    background: #222;
+    margin: 0;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    color: #fff4d9;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease; /* 在body樣式中添加過渡效果 */
+}
+
+.light-background {
+    background-color: #fff4d9;
+    transition: background-color 0.3s ease; /* 添加漸變效果 */
+}
+
+
+#time {
+    width: 100%;
+    max-width: none;
+    /* 居中显示 */
+    padding: 0;
+    background-color: #fff4d9;
+    overflow: hidden;
+    /* 隐藏容器宽度变化时的内容溢出 */
+    animation: narrowWidth 1s forwards;
+    /* 添加宽度变窄的动画效果 */
+    animation-delay: 2s;
+    
+}
+
+
+@keyframes narrowWidth {
+    from {
+        width: 100%;
+        /* 初始宽度为 100% */
+    }
+
+    to {
+        width: 40%;
+        /* 最终宽度变窄为 50% */
+    }
+}
+
+
+#contact{
+    height: 720px;
+    width: 100%;
+    max-width: none;
+    background-color: rgb(160, 31, 36);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Serif TC', serif;
+    text-align: center;
+    flex-direction: column;
+}
+
+#media{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 24px;
+    text-align: center;
+    flex-direction: row;
+}
+
+#media img{
+    margin: 40px;
+    margin-bottom: 20px;
+}
+
+ul#time-line li div p {
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-family: 'Noto Serif TC Bold', serif;
+    font-size: 24px;
+    color: rgb(160 31 36);
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+}
+
+ul#time-line {
+    height: 100%;
+    padding: 200px 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 時間中央線 */
+ul#time-line:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, #303030, rgb(160 31 36), #fff4d900);
+    border-radius: 20px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+    animation: lineAppear 2s forwards;
+    /* 添加動畫 */
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes lineAppear {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+ul#time-line li {
+    width: 50%;
+    margin-left: auto;
+    text-align: left;
+    transition: all cubic-bezier(0.68, 0.55, 0.265, 1.55) 1s;
+    transform: rotateX(90deg);
+}
+
+ul#time-line li:nth-child(2n) {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: right;
+}
+
+ul#time-line li div {
+    width: 70%;
+    display: inline-block;
+    background: none;
+    /* 移除背景色 */
+    padding: 30px;
+    padding-left: 55px;
+    padding-right: 55px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    position: relative;
+    color: #303030;
+}
+
+ul#time-line li div:after {
+    content: '';
+    position: absolute;
+    left: auto;
+    right: 90%;
+    top: 45%;
+    border: solid 10px;
+    border-color: transparent rgb(160 31 36) transparent transparent;
+    transition: transform 0.5s ease;
+}
+
+ul#time-line li div:before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: rgb(160 31 36);
+    border: 4px solid rgb(160 31 36);
+    border-radius: 50%;
+    left: -7px;
+    top: 46.5%;
+    animation: showBefore 1s forwards;
+    animation-delay: 2s;
+    /* 延迟 2 秒显示 */
+    opacity: 0;
+    /* 初始设置为透明 */
+}
+
+@keyframes showBefore {
+    0% {
+        opacity: 0;
+        /* 初始状态透明 */
+    }
+
+    100% {
+        opacity: 1;
+        /* 最终状态不透明 */
+    }
+}
+
+ul#time-line li:nth-child(2n) div:before {
+    right: -8px;
+    left: auto;
+}
+
+ul#time-line li:nth-child(2n) div:after {
+    left: 90%;
+    right: auto;
+    border-color: transparent transparent transparent rgb(160 31 36);
+}
+
+ul#time-line li.visibility {
+    transform: rotateX(0deg) perspective(360px);
+}
+
+ul#time-line li.visibility p {
+    transform: translateX(40px);
+}
+
+ul#time-line li:nth-child(2n).visibility p {
+    transform: translateX(-40px);
+}
+
+ul#time-line li.visibility div:after {
+    transform: translateX(40px);
+}
+
+ul#time-line li:nth-child(2n).visibility div:after {
+    transform: translateX(-40px);
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* 滾動條寬度 */
+    height: 12px; /* 滾動條高度（水平滾動條） */
+  }
+  
+  /* 滾動條軌道 */
+  ::-webkit-scrollbar-track {
+    background: #222; /* 滾動條軌道背景色 */
+  }
+  
+  /* 滾動條滑塊 */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(197, 43, 48); /* 滾動條滑塊背景色 */
+    border-radius: 10px; /* 滑塊圓角 */
+  }
+  
+  /* 滾動條滑塊在懸停時的樣式 */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(160, 31, 36); /* 滾動條滑塊懸停背景色 */
+  }
+  

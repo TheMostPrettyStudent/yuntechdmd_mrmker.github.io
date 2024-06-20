@@ -1,0 +1,115 @@
+@font-face {
+	font-family: 'Noto Serif TC';
+	src: url('../fonts/static/NotoSerifTC-Medium.ttf') format('truetype'),
+  }
+  
+  @font-face {
+	font-family: 'Noto Serif TC Bold';
+	src: url('../fonts/static/NotoSerifTC-Bold.ttf') format('truetype');
+  }
+  
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Noto Serif TC', serif;
+}
+
+p {
+	margin-top: 10px;
+	font-size: 13px;
+	text-align: justify;
+}
+
+.container,
+.book-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	height: 100vh;
+	width: 100%;
+	max-width: none;
+	margin:auto ;
+	background-image: url('../images/manual_image/background.png');
+	background-size: cover;
+	background-position: center;
+
+}
+.book-content {
+	width: 839.8px;
+	height: 581px;
+	position: relative;
+	perspective: 1000px;
+	transition: 0.5s;
+	background: url('../images/design_image/book.png') no-repeat;
+	background-size: contain;
+	background-position: left;
+	top: 6%;
+	left: -5%;
+}
+
+.book {
+	position: absolute;
+	width: 362px;
+	height: 532px;
+	transition: 0.5s;
+	transform-style: preserve-3d;
+	transform-origin: left;
+	left: 50.8%;
+	top: 2.7%;
+}
+
+.face-front,
+.face-back {
+	width: 105%;
+	height: 101%;
+	background: rgba(255, 255, 255, 0);
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.face-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateZ(-1px) rotateY(180deg);
+}
+
+#portada {
+	background: url('../images/design_image/page2.png');
+}
+
+#portada-back {
+	background: url('../images/design_image/page38.png');
+}
+
+#portada,
+#portada-back {
+	background-size: 100% 100%;
+}
+
+.page-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Clases que se agregaran con Javascript */
+
+.trnsf {
+	transform: translateX(80px);
+}
+
+.trnsf-reset {
+	transform: translateX(0px);
+}
+
+/* @media para hacer el texto responsivo */
+
+@media screen and (max-width: 800px) {
+	p {
+		font-size: 12px;
+	}
+}

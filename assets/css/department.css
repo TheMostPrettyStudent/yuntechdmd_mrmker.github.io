@@ -1,0 +1,83 @@
+body {
+    width: 100%;
+    font-family: "Noto Serif TC", serif;
+    color: #351f07;
+    letter-spacing: 0.1em;
+    margin: auto;
+    background-image: url('../images/department_image/bg2-01.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* 水平居中对齐 */
+}
+
+.main-content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-top: 7%;
+    margin-bottom: 3%;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+    gap: 30px; /* 缩小网格项之间的间距 */
+    justify-content: center; /* 水平居中对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    flex: 1; /* 占据主内容区域 */  
+    margin:0 ;
+}
+
+.category {
+    text-align: center;
+}
+
+.category h2 {
+    font-size: 18px;
+    cursor: pointer;
+    margin: 5px 0; /* 调整标题与图片之间的间距 */
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    opacity: 0.5; /* 初始状态下设置图片透明度为50% */
+    transition: opacity 0.3s ease; /* 添加过渡效果 */
+}
+
+.sidebar {
+    position: fixed;
+    width: 200px; /* 固定宽度 */
+    background-color: #f3555500;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.energy {
+    position: sticky;
+    top: 20px; /* 当页面滚动时，能量图距离顶部的距离 */
+    margin-bottom: 30px;
+}
+
+.energy h3 {
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.energy-images {
+    display: flex;
+    flex-direction: column;
+    align-items:center; /* 将内容靠右对齐 */
+}
+
+.energy-image {
+    width: 180px;
+    height: auto;
+    display: none; /* 初始隐藏能量值图片 */
+    margin-bottom: 20px; /* 增加底部间距 */
+    margin-right: -40px; /* 增加与图片的右侧间距 */
+    margin-top: 50%;
+}
